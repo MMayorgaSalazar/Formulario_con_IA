@@ -1,0 +1,32 @@
+{% extends './base.html' %}
+
+{% block title %}
+Vista previa del Formulario
+{% endblock %}
+
+{% block body %}
+<body>
+    
+    <iframe src="{{ url_for('static', filename='temp/curso_inscripcion.pdf') }}" width="100%" height="600px"></iframe>
+
+    <br><br>
+
+    <div class="button-container">
+        <!-- Botón para corregir el formulario -->
+        <form action="/" method="get">
+            <button type="submit" class="button button-container">Corregir Formulario</button>
+        </form>
+
+        <!-- Botón para descargar el PDF -->
+        <form action="{{ url_for('download_pdf') }}" method="get">
+            <button type="submit" class="button">Descargar PDF</button>
+        </form>
+
+        <!-- Botón para evaluar el PDF -->
+        <form action="{{ url_for('evaluate_pdf') }}" method="post">
+            <button type="submit" class="button">Evaluar</button>
+        </form>
+     </div>
+
+</body>
+{% endblock %}

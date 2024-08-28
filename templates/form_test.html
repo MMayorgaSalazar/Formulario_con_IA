@@ -1,0 +1,82 @@
+{% extends './base.html' %}
+
+{% block title %}
+index
+{% endblock %}
+
+{% block body %}
+<body>
+    <div class=" ">
+        <!-- Inicio de formulario -->
+        <form action="/generate_pdf" method="post" class="formulario">
+            <h1 class="formulario__titulo">Formulario de inscripción</h1>
+            <!-- Seleccion de cursos -->
+            <label for="curso" class="dato_solicitado">Titulo del curso</label>
+            <select name="curso" id="curso" class="opcion" required>
+                <option disabled selected>Seleccione un curso</option>
+                <option value="Scrum">Scrum</option>
+            </select>
+            <br>
+            <!-- Dias que se cursara -->
+            <label for="fecha_inicio" class="fecha_inicio">Fecha de inicio del curso</label>
+            <input type="date" id="fecha_inicio" name="fecha_inicio" placeholder="Ej: sábado 20 de agosto" required>
+
+            <label for="fecha_termino" class="fecha_termino">Fecha de termino del curso</label>
+            <input type="date" id="fecha_termino" name="fecha_termino" placeholder="Ej: sábado 20 de agosto" required>
+            
+            <!-- horario de inicio y de termino-->
+            <label for="inicio" class="hora">Hora de Inicio:</label>
+            <input type="time" id="inicio" name="inicio" required>
+            <label for="termino" class="hora">Hora de Término:</label>
+            <input type="time" id="termino" name="termino"required>
+
+            <!-- participantes-->
+            <label for="participantes">Cantidad de participantes</label>
+            <input type="number"  id="participantes" name="participantes" min="0" max="999" step="1" class="" required >
+
+            <!-- Nombre del instructor-->
+            <label for="instructor">Nombre del instructor</label>
+            <input type="text"  id="instructor" name="instructor" class="formulario__input" required >
+            
+            <!--Objetivo del curso-->
+            <label for="objetivo">Objetivo del curso</label>
+            <br>
+            <textarea name="objetivo" id="objetivo" rows="2" cols="50" class="formulario__input" required></textarea>
+            
+            <!--temario del curso-->
+            <br>
+            <label for="temario">Descripción del temario</label>
+            <br>
+            <textarea name="temario" id="temario" rows="2" cols="50" class="input_label" required></textarea>
+            <br>
+
+            <!-- nivel de cursos -->
+            <label for="nivel">Nivel del curso</label>
+                <select name="nivel" id="nivel" required>
+                    <option disabled selected>Seleccione un nivel</option>
+                    <option value="Básico">Básico</option>
+                    <option value="Medio">Medio</option>
+                    <option value="Avanzado">Avanzado</option>
+                </select>            
+
+            <!-- modalidad de cursos -->
+            <label for="modalidad">Modalidad del curso</label>
+                <select name="modalidad" id="modalidad" required>
+                    <option disabled selected>Seleccione una modalidad</option>
+                    <option value="Presencial">Presencial</option>
+                    <option value="Online">Online</option>
+                </select>  
+            <!-- materiales de cursos -->
+            <br>
+            <label for="materiales">Materiales necesarios</label>
+            <br>
+            <textarea name="materiales" id="materiales" rows="2" cols="50"  class="txt"required></textarea>
+
+            <div class="button-container">
+                <input type="submit" class="button " value="Generar PDF">
+            </div>    
+            
+        </form>
+    </div>
+</body>
+{% endblock %}

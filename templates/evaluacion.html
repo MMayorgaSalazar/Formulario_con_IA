@@ -1,0 +1,24 @@
+{% extends './base.html' %}
+
+{% block title %}
+Vista previa del Formulario
+{% endblock %}
+
+{% block body %}
+<body>
+    <h1>Evaluación del PDF</h1>
+    
+    <div class="content response-container">
+        {{ evaluation_content | safe }}
+    </div>
+
+    <br>
+    <div class="button-container">
+        <!-- Botón para regresar a la vista previa -->
+        <form action="{{ url_for('preview_pdf') }}" method="get">
+            <button type="submit" class="button">Regresar a la Vista Previa</button>
+        </form>
+    </div>
+
+</body>
+{% endblock %}
